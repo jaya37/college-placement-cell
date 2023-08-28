@@ -1,0 +1,34 @@
+<div th:insert="navbar/studentNav.html"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/styles.css">
+<center>
+    <div class="mt-5 container">
+
+
+        <table class="mt-5 text-center text-sm bg-gradient-to-l from-slate-200 to-slate-400  w-10/12 border-8 border-double border-slate-500 ">
+            <tr class="border-b font-medium border-4 border-double border-pink-500 ">
+                <th scope="col" class="px-6 py-2 text-lg">Subject</th>
+                <th scope="col" class="px-6 py-2 text-lg">Link</th>
+
+
+            </tr>
+            <tr class="border-b dark:border-neutral-500" th:each="c : ${learning}" style="width: 18rem;">
+                <td class="whitespace-nowrap px-6 py-2" th:text="${c.subject}"></td>
+
+                <td><a class="text-blue-600" th:href="@{${c.link}}" th:text="${c.link}"> </a>
+
+                </td>
+
+
+
+                <td class="whitespace-nowrap px-6 py-2" hidden th:text="${c.id}"></td>
+
+
+                </button>
+
+
+            </tr>
+        </table>
+    </div>
+</center>
+

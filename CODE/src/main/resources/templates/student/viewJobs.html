@@ -1,0 +1,80 @@
+<div th:insert="navbar/studentNav.html"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/styles.css">
+<center>
+    <div class="mt-5 container">
+        <form>
+            <div class="w-full max-w-lg text-teal-500">
+                <div class="alert alert-danger"
+                     th:if="${error}"
+                     th:text="${error}">
+                </div>
+                <div class="alert alert-success"
+                     th:if="${success}"
+                     th:text="${success}">
+                </div>
+            </div>
+
+            <table class="mt-20 text-center text-sm bg-gradient-to-l from-slate-200 to-slate-400  w-10/12 border-8 border-double border-slate-500">
+                <tr>
+                    <th scope="col" class="px-6 py-2 text-lg">companyName</th>
+                    <th scope="col" class="px-6 py-2 text-lg">jobTitle</th>
+                    <th scope="col" class="px-6 py-2 text-lg">domain</th>
+                    <th scope="col" class="px-6 py-2 text-lg">description</th>
+                    <th scope="col" class="px-6 py-2 text-lg">eligibleMarks</th>
+                    <th scope="col" class="px-6 py-2 text-lg">department</th>
+                    <th scope="col" class="px-6 py-2 text-lg">location</th>
+                    <th scope="col" class="px-6 py-2 text-lg">salary</th>
+                    <th scope="col" class="px-6 py-2 text-lg">Action</th>
+
+
+                </tr>
+                <tr class="border-b dark:border-neutral-500" th:each="c : ${job}">
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.companyName}"></td>
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.jobTitle}"></td>
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.domain}"></td>
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.description}"></td>
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.eligibleMarks}"></td>
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.department}"></td>
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.location}"></td>
+                    <td class="whitespace-nowrap px-6 py-2" th:text="${c.salary}"></td>
+
+
+
+
+                    <td>
+                        <a
+                                th:if="${c.status == 'posted'}"
+                                th:href="@{'/applyForJob/'+${c.id}}"
+                                class="mt-6 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                data-ripple-light="true"
+                        >Apply For Job
+                        </a>
+                        <button
+                                th:if="${c.status == 'applied'}"
+
+
+                                class="mt-6 block w-full select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                data-ripple-light="true"
+                        >Applied
+                        </button>
+                    </td>
+
+
+                </tr>
+            </table>
+            <div class="w-full max-w-lg text-teal-500 mt-20">
+                <div class="alert alert-danger"
+                     th:if="${error}"
+                     th:text="${error}">
+                </div>
+                <div class="alert alert-success"
+                     th:if="${success}"
+                     th:text="${success}">
+                </div>
+            </div>
+
+        </form>
+    </div>
+</center>
+

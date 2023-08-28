@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="navbar/StudentNav.html"></div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Title</title>
+</head>
+<body>
+
+
+<section class="antialiased mt-10  text-gray-600 h-screen ">
+    <div class="flex flex-col justify-center ">
+
+        <div class="w-10/12  mx-auto bg-gradient-to-l from-blue-400 to-red-500 shadow-lg rounded-sm border border-gray-200">
+            <header class="px-5 py-4 border-b border-gray-100">
+                <div class="font-semibold text-2xl text-gray-800">View Applications</div>
+            </header>
+
+            <div class="overflow-x-auto p-3">
+                <table class="table-auto w-full">
+                    <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                    <tr>
+                        <th class="p-2">
+                            <div class="font-semibold text-left text-black">Product Name</div>
+                        </th>
+                        <th class="p-2">
+                            <div class="font-semibold text-left text-black">Quantity</div>
+                        </th>
+                        <th class="p-2">
+                            <div class="font-semibold text-left text-black">Total</div>
+                        </th>
+                        <th class="p-2">
+                            <div class="font-semibold text-center text-black ">Action</div>
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="text-sm divide-y divide-gray-100">
+
+                    <tr>
+                        <td class="p-2">
+                            <div class="font-medium text-gray-800">
+                                Samsung Galaxy Note 4
+                            </div>
+                        </td>
+                        <td class="p-2">
+                            <div class="text-left">1</div>
+                        </td>
+                        <td class="p-2">
+                            <div class="text-left font-medium text-green-500">
+                                RM 2,890.66
+                            </div>
+                        </td>
+                        <td class="p-2">
+                            <div class="flex justify-center">
+                                <button>
+                                    <svg class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
+                                         fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+<script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("app", () => ({
+            total: 0,
+            selected: [],
+
+            toggleCheckbox(element, amount) {
+                if (element.checked) {
+                    this.selected.push(element.value);
+                    this.total += amount;
+                } else {
+                    const index = this.selected.indexOf(element.value);
+
+                    if (index > -1) this.selected.splice(index, 1);
+
+                    this.total -= amount;
+                }
+            },
+        }));
+    });
+
+
+
+</script>
+</body>
+</html>

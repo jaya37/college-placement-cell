@@ -1,0 +1,12 @@
+ what is this
+    // why we need a home model??
+    //where is @Entity annotation , service classes , repository
+
+    // i told you all are the same except controller classes
+    // you did this many projects and still making mistakes
+    //ok vamsi we will do
+    //is there any changes required in controler class or is it enough?
+    //What are the  variables we need to add here
+
+
+

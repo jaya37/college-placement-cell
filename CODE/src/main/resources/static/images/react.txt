@@ -1,0 +1,15 @@
+H/W SYSTEM CONFIGURATION:
+Processor            	   :   I3/Intel Processor
+RAM                        :   4GB (min)
+Hard Disk                  :   160GB
+Key Board                  :   Standard Windows Keyboard
+Mouse                      :   Two or Three Button Mouse
+Monitor                    :   SVGA
+
+S/W SYSTEM CONFIGURATION:
+Operating System            :   Windows 7/8/10
+Application Server          :   Tomcat 9.0		
+Front End                   :   React js ,Html, Css
+Scripts                     :   JavaScript.
+Database                    :   My SQL 6.0
+Database Connectivity       :   JDBC

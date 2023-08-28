@@ -1,0 +1,54 @@
+<div th:insert="navbar/studentNav.html"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/styles.css">
+<center>
+    <div class="mt-5 container">
+        <div class="w-full max-w-lg text-teal-500">
+            <div class="alert alert-danger"
+                 th:if="${error}"
+                 th:text="${error}">
+            </div>
+            <div class="alert alert-success"
+                 th:if="${success}"
+                 th:text="${success}">
+            </div>
+        </div>
+
+
+        <table class="mt-5 text-center text-sm bg-gradient-to-l from-slate-200 to-slate-400  w-10/12 border-8 border-double border-slate-500 ">
+            <tr class="border-b font-medium border-4 border-double border-pink-500 ">
+                <th scope="col" class="px-6 py-2 text-lg">Subject</th>
+                <th scope="col" class="px-6 py-2 text-lg">Fees</th>
+                <th scope="col" class="px-6 py-2 text-lg">Duration</th>
+                <th scope="col" class="px-6 py-2 text-lg">Action</th>
+
+
+
+            </tr>
+            <tr class="border-b dark:border-neutral-500" th:each="c : ${internship}" style="width: 18rem;">
+                <td class="whitespace-nowrap px-6 py-2" th:text="${c.subject}"></td>
+
+                <td class="whitespace-nowrap px-6 py-2" th:text="${c.fees}">
+                </td>
+                <td class="whitespace-nowrap px-6 py-2" th:text="${c.duration}">
+                </td>
+                <td class="whitespace-nowrap px-6 py-2">
+                    <a th:if="${c.status == 'added'}"
+                       th:href="@{'/applyInternship/'+${c.id}}"
+                       class=" mt-2 block w-full select-none rounded-lg bg-lime-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+
+                    >APPlY</a>
+
+
+
+                <td class="whitespace-nowrap px-6 py-2" hidden th:text="${c.id}"></td>
+
+
+                </button>
+
+
+            </tr>
+        </table>
+    </div>
+</center>
+

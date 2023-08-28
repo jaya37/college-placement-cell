@@ -1,0 +1,58 @@
+<div th:insert="navbar/placementNav.html"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/styles.css">
+<center>
+  <div class="mt-5 container">
+
+
+
+    <table class="mt-5 text-center text-sm bg-gradient-to-l from-slate-200 to-slate-400  w-10/12 border-8 border-double border-slate-500 ">
+      <tr class="border-b font-medium border-4 border-double border-pink-500 ">
+        <th scope="col" class="px-6 py-2 text-lg">studentName</th>
+        <th scope="col" class="px-6 py-2 text-lg">jobTitle</th>
+        <th scope="col" class="px-6 py-2 text-lg">description</th>
+        <th scope="col" class="px-6 py-2 text-lg">domain</th>
+        <th scope="col" class="px-6 py-2 text-lg">companyName</th>
+        <th scope="col" class="px-6 py-2 text-lg">department</th>
+        <th scope="col" class="px-6 py-2 text-lg">location</th>
+
+      </tr>
+      <tr  class="border-b dark:border-neutral-500" th:each="c : ${applications}" >
+        <td  class="whitespace-nowrap px-6 py-2" th:text="${c.studentName}"></td>
+
+        <td  class="whitespace-nowrap px-6 py-2" th:text="${c.jobTitle}"></td>
+        <td  class="whitespace-nowrap px-6 py-2" th:text="${c.description}"></td>
+        <td  class="whitespace-nowrap px-6 py-2" th:text="${c.domain}"></td>
+        <td  class="whitespace-nowrap px-6 py-2"  th:text="${c.companyName}"></td>
+        <td  class="whitespace-nowrap px-6 py-2"  th:text="${c.department}"></td>
+        <td  class="whitespace-nowrap px-6 py-2" th:text="${c.location}"></td>
+        <td th:each="s:${student}">
+          <p class="whitespace-nowrap px-6 py-2"  th:text="${s.email}"></p>
+
+        <td>
+          <a
+                  th:if="${c.status == 'created'}"
+                  th:href="@{'/student/approve/' + ${c.id}}"
+                  class="mt-2 mb-1 block w-full select-none rounded-lg bg-lime-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+
+          >Approve</a>
+          <a
+                  th:if="${c.status == 'approved'}"
+
+                  class="mt-2 mb-1 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+
+          >Approved</a>
+        </td>
+        <td  class="whitespace-nowrap px-6 py-2" hidden th:text="${c.studentId}"></td>
+        <td  class="whitespace-nowrap px-6 py-2"  hidden  th:text="${c.email}"></td>
+
+
+        </button>
+
+
+
+      </tr>
+    </table>
+  </div>
+</center>
+

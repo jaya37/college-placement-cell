@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="navbar/placementNav.html"></div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="grid grid-cols-12">
+    <div class="col-start-5 col-end-8 mt-20 ">
+
+
+<div class="w-full max-w-lg text-teal-500 text-xxl">
+    <div class="alert alert-danger"
+         th:if="${error}"
+         th:text="${error}">
+    </div>
+    <div class="alert alert-success"
+         th:if="${success}"
+         th:text="${success}">
+    </div>
+</div> </div>
+</div>
+</body>
+</html>

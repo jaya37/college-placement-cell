@@ -1,0 +1,22 @@
+
+
+body {
+background-image:url('https://www.jnncollege.edu.in/wp-content/uploads/2019/03/placementcell.png');
+background-repeat:no-repeat;
+background-attachment:fixed;
+}
+
+@tailwind base;
+
+@layer base {
+  html {
+    @apply text-neutral-800;
+  }
+  html.dark {
+    @apply text-neutral-50;
+    @apply bg-neutral-800;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;

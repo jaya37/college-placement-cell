@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="navbar/companyNav.html"></div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Title</title>
+</head>
+<body>
+
+<div class=" flex justify-center mt-20 ">
+    <table class=" text-center text-sm bg-gradient-to-l from-slate-200 to-slate-400  w-10/12 border-8 border-double border-slate-500 ">
+        <thead class="border-b font-medium border-4 border-double border-pink-500 ">
+        <tr>
+            <th scope="col" class="px-6 py-2 text-lg">
+                Name
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                jobTitle
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                Phone Number
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                domain
+
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                salary
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                department
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                companyName
+            </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="s:${profile}" class="border-b dark:border-neutral-500">
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.studentName}"></td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.jobTitle}"></td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.domain
+}"></td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.companyName}">
+
+            </td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.salary }">
+
+            </td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.department}">
+
+            </td>
+
+            <td class="whitespace-nowrap px-6 py-2">
+                <a
+                        th:if="${s.status == 'applied'}"
+                        class=" mt-2 block w-full select-none rounded-lg bg-lime-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="submit"
+                        th:href="@{'/select/'+${s.id}}"
+
+                        data-ripple-light="true"
+                >
+                    SELECT
+                </a>
+                <a
+                        th:if="${s.status == 'applied'}"
+                        class=" mt-2 block w-full select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="submit"
+                        th:href="@{'/reject/'+${s.id}}"
+
+                        data-ripple-light="true"
+                >
+                    REJECT
+                </a>
+                <button
+                        class=" mt-2 block w-full select-none rounded-lg bg-pink-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="submit"
+                        th:if="${s.status == 'rejected'}"
+
+                        data-ripple-light="true"
+                >
+                    Rejected
+                </button>
+                <button
+                        class=" mt-2 block w-full select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="submit"
+                        th:if="${s.status == 'selected'}"
+
+                        data-ripple-light="true"
+                >
+                    Selected
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

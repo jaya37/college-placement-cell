@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="navbar/companyNav.html"></div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="flex justify-end  mt-2 mr-20">
+    <a
+            class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            data-ripple-light="true"   href="/addJob"
+    >
+        Add Drive
+    </a>
+</div>
+<div class=" flex justify-center mt-2 ">
+    <table class=" text-center text-sm bg-gradient-to-l from-slate-200 to-slate-400  w-10/12 border-8 border-double border-slate-500 ">
+        <thead class="border-b font-medium border-4 border-double border-pink-500 ">
+        <tr>
+            <th scope="col" class="px-6 py-2 text-lg">
+                Name
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                Email
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                Phone Number
+            </th>
+            <th scope="col" class="px-6 py-2 text-lg">
+                Status
+            </th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="s:${profile}" class="border-b dark:border-neutral-500">
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.studentName}"></td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.email}"></td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.phoneNumber}"></td>
+            <td class="whitespace-nowrap px-6 py-2" th:text="${s.status}">
+
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
